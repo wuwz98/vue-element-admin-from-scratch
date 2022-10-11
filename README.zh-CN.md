@@ -25,8 +25,86 @@
     <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
   </a>
 </p>
-
 简体中文 | [English](./README.md) | [日本語](./README.ja.md) | [Spanish](./README.es.md)
+
+
+
+## 搭建开发环境
+
+node和npm的版本如下：
+
+```
+C:\Windows\system32>node -v
+v12.22.12
+
+C:\Windows\system32>npm -v
+6.14.16
+```
+
+在工程目录下执行npm install，会出现如下错误：
+
+```
+fetchMetadata: sill resolveWithNewModule raw-loader@0.5.1 checking installable status
+```
+
+改用yarn，首先安装yarn：
+
+```
+npm install -g yarn
+D:\projects\vue-element-admin>yarn -v
+1.22.19
+```
+
+之后执行：
+
+```
+yarn install
+```
+
+出现报错：
+
+```
+warning tui-editor > highlight.js@9.18.5: Support has ended for 9.x series. Upgrade to @latest
+error An unexpected error occurred: "https://github.com/sohee-lee7/Squire: connect ETIMEDOUT 13.229.188.59:443".
+```
+
+可以看出是安装tui-editor时出错，解决的办法是去除package.json的tui-editor配置项，之后再次安装即可：
+
+```
+npm install
+```
+
+
+
+如果需要使用tui-editor，可以手动安装：
+
+```
+npm install --save tui-editor
+```
+
+或者：
+
+```
+yarn add tui-editor
+```
+
+但是安装时还是有错误：
+
+```
+error An unexpected error occurred: "https://github.com/seonim-ryu/Squire: read ECONNRESET".
+```
+
+因此暂时取消使用tui-editor。
+
+
+
+### 参考
+
+[vue 项目放弃tui-editor](https://blog.csdn.net/m0_37588079/article/details/122354362)
+
+
+
+
 
 <p align="center">
   <b>SPONSORED BY</b>
